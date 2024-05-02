@@ -10,7 +10,7 @@ app.use(express.json());
 // Usar las rutas definidas en userRoutes.js
 app.use('/api', userRoutes); // Prefijo '/api' para todas las rutas de userRoutes.js
 
-const PORT = config.PORT;
+const PORT = (config.PORT || 3000);
 app.listen(PORT, () => {
   console.log(`Servidor en ejecución en el puerto ${PORT}`);
 });
