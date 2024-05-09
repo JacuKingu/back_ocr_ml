@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
-const IngresoFamiliar = require('./ingresoFamiliaModel');
-const HistorialAcademico = require('./historialAcademicoModel');
-const Documentos = require('./documentoModel');
+const {sequelize} = require('../config/database');
+const {IngresoFamiliar} = require('./ingresoFamiliaModel');
+const {HistorialAcademico} = require('./historialAcademicoModel');
+const {Documentos} = require('./documentoModel');
 
 const Estudiante = sequelize.define('Estudiante', {
   idEstudiante: {

@@ -1,20 +1,29 @@
-const HistorialAcceso = require('../models/historialAccesoModel');
-const validateHistorialAcceso = require('../middlewares/')
+const { } = require('../models/historialAccesoModel');
+const { validationResult } = require('express-validator');
+const {validateHistorialAcceso} = require('../middlewares/accesoMiddleware')
 
 // Crear un nuevo registro en el historial de acceso
 exports.createHistorialAcceso = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  // Obtener los datos del cuerpo de la solicitud
   const { id_usuario, tipo_accion } = req.body;
 
   try {
-    const nuevoHistorial = new HistorialAcceso({
+    // Crear el nuevo registro en el historial de acceso
+    const nuevoHistorial = await HistorialAcceso.create({
       id_usuario,
-      tipo_accion,
+      tipo_accion
     });
-    await nuevoHistorial.save();
-    res.status(201).json({ message: 'Historial de acceso creado correctamente', historial: nuevoHistorial });
+
+    // Enviar la respuesta con el nuevo registro creado
+    res.status(201).json({ message: 'Registro creado correctamente', historial: nuevoHistorial });
   } catch (error) {
-    console.error('Error al crear historial de acceso:', error);
-    res.status(500).json({ error: 'Error interno del servidor' });
+    console.error(error);
+    res.status(500).json({ error: 'Error al crear el registro en el historial de acceso' });
   }
 };
 

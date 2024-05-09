@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 
 // Usar las rutas definidas en userRoutes.js
-app.use('/octi', userRoutes); // Prefijo '/api' para todas las rutas de userRoutes.js
+app.use('/octi', userRoutes); // Prefijo '/octi' para todas las rutas de userRoutes.js
 
 const PORT = (config.PORT || 3000);
 app.listen(PORT, () => {

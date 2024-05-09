@@ -1,10 +1,10 @@
 const { validationResult } = require('express-validator');
-const { Documento } = require('../models/documentoModel'); // Importar el modelo de Documento
+const { Documentos } = require('../models/documentoModel'); // Importar el modelo de Documento
 
 // Obtener todos los documentos
 const getAllDocumentos = async (req, res) => {
   try {
-    const documentos = await Documento.findAll();
+    const documentos = await Documentos.findAll();
     res.status(200).json(documentos);
   } catch (error) {
     console.error('Error al obtener todos los documentos:', error);

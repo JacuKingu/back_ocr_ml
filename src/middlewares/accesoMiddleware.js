@@ -1,6 +1,6 @@
 const { body, validationResult } = require('express-validator');
 
-exports.validateHistorialAcceso = [
+const validateHistorialAcceso = [
     body('id_usuario').isNumeric().withMessage('El ID de usuario debe ser un número entero'),
     body('tipo_accion').isIn(['inicio_sesion', 'cierre_sesion', 'cambio_contraseña']).withMessage('Tipo de acción no válido'),
     (req, res, next) => {
@@ -11,3 +11,6 @@ exports.validateHistorialAcceso = [
       next();
     },
   ];
+
+
+  module.exports = validateHistorialAcceso;

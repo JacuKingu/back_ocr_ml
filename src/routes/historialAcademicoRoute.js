@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const historialAcademicoController = require('../controllers/historialAcademicoController');
 const { validateHistorialAcademico } = require('../middlewares/academicoMiddleware');
+const manejoErrores = require('../middlewares/manejoErrores');
 
 router.get('/historiales', historialAcademicoController.getAllHistorialesAcademicos);
 
@@ -12,5 +13,8 @@ router.post('/historiales', validateHistorialAcademico, historialAcademicoContro
 router.put('/historiales/:id', validateHistorialAcademico, historialAcademicoController.updateHistorialAcademico);
 
 router.delete('/historiales/:id', historialAcademicoController.deleteHistorialAcademico);
+
+// Middleware de manejo de errores
+router.use(manejoErrores);
 
 module.exports = router;

@@ -1,7 +1,7 @@
 const { body, validationResult } = require('express-validator');
 
 // Middleware de validación para la creación y actualización de historiales académicos
-exports.validateHistorialAcademico = [
+const validateHistorialAcademico = [
   body('promedio').isNumeric().withMessage('El promedio debe ser un número'),
   body('institucion_educativa').notEmpty().withMessage('La institución educativa es requerida'),
   (req, res, next) => {
@@ -12,3 +12,5 @@ exports.validateHistorialAcademico = [
     next();
   },
 ];
+
+module.exports = validateHistorialAcademico;
