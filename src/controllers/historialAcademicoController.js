@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator');
-const {HistorialAcademico} = require('../models/historialAcademicoModel'); 
+const { HistorialAcademico } = require('../models/historialAcademicoModel'); 
 
 // Obtener todos los historiales académicos
 const getAllHistorialesAcademicos = async (req, res) => {

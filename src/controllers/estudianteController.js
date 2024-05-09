@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator');
-const Estudiante = require('../models/estudianteModel');
+const { Estudiante } = require('../models/estudianteModel');
 
 // Obtener todos los estudiantes
 const getAllEstudiantes = async (req, res) => {
