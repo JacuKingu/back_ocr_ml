@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // Configura tu conexión a la base de datos
+const { sequelize } = require('../config/database');
 
 const IngresoFamiliar = sequelize.define('IngresoFamiliares', {
   idIngresoFamiliar: {

@@ -1,6 +1,6 @@
-const express = require('express');
-const router = express.Router();
-const comunicacionController = require('../controllers/comunicacionController');
+const { express } = require('express');
+const { router } = express.Router();
+const { comunicacionController } = require('../controllers/comunicacionController');
 const { validarNuevaComunicacion } = require('../middlewares/comunicaionMiddleware');
 
 // Ruta para obtener todas las comunicaciones de un usuario

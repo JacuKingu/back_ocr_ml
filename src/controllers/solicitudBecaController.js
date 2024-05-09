@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator');
-const SolicitudBeca = require('../models/solicitudBecaModel');
+const { SolicitudBeca } = require('../models/solicitudBecaModel');
 
 // Crear una nueva solicitud de beca
 const createSolicitudBeca = async (req, res) => {

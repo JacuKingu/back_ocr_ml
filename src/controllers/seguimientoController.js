@@ -1,6 +1,6 @@
 const { validationResult } = require('express-validator');
-const SeguimientoBecas = require('../models/seguimientoBecasModel');
-const SolicitudesBecas = require('../models/solicitudBecaModel');
+const { SeguimientoBecas } = require('../models/seguimientoBecasModel');
+const { SolicitudesBecas } = require('../models/solicitudBecaModel');
 
 // Crear un nuevo seguimiento de beca
 const createSeguimientoBecas = async (req, res) => {

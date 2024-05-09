@@ -1,6 +1,6 @@
-const express = require('express');
-const userController = require('../controllers/userController');
-const manejoErrores = require('../middlewares/manejoErrores');
+const { express } = require('express');
+const { userController } = require('../controllers/userController');
+const { manejoErrores } = require('../middlewares/manejoErrores');
 
 const router = express.Router();
 

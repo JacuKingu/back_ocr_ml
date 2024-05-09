@@ -1,6 +1,6 @@
-const express = require('express');
-const router = express.Router();
-const rolesController = require('../controllers/rolesController');
+const { express } = require('express');
+const { router } = express.Router();
+const { rolesController } = require('../controllers/rolesController');
 const { validarRol } = require('../middlewares/rolMiddleware')
 
 //Ruta para crear un rol

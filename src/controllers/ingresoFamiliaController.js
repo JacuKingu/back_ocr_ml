@@ -1,6 +1,5 @@
 const { validationResult } = require('express-validator');
-const {IngresoFamiliar} = require('../models/ingresoFamiliar');
-const { validateIngresoFamiliar } = require('../middlewares/familiarMiddleware');
+const { IngresoFamiliar } = require('../models/ingresoFamiliar');
 
 // Crear un nuevo registro de ingreso familiar
 const createIngresoFamiliar = async (req, res) => {

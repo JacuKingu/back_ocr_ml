@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // Importar la conexión a la base de datos
-const Roles = require('./roleModel');
+const { sequelize } = require('../config/database');
+const { Roles } = require('./roleModel');
 
 const Usuarios = sequelize.define('Usuarios', {
   idUsuario: {

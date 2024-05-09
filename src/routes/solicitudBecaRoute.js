@@ -1,6 +1,6 @@
-const express = require('express');
-const router = express.Router();
-const solicitudBecaController = require('../controllers/solicitudBecaController');
+const { express } = require('express');
+const { router } = express.Router();
+const { solicitudBecaController } = require('../controllers/solicitudBecaController');
 const { validarNuevaSolicitud } = require('../middlewares/solicitudMiddleware');
 
 // Ruta para obtener todas las solicitudes de becas

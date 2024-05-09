@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
-const {sequelize} = require('../config/database');
-const {Usuarios} = require('./userModel');
+const { sequelize } = require('../config/database');
+const { Usuarios } = require('./userModel');
 
 const HistorialAcceso = sequelize.define('HistorialAcceso', {
   idHistorial: {

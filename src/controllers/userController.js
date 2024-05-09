@@ -1,6 +1,6 @@
-const db = require('../config/database');
+const { db } = require('../config/database');
 const { validationResult } = require('express-validator');
-const {bcrypt} = require('bcrypt');
+const { bcrypt } = require('bcrypt');
 
 // Función de utilidad para manejar errores
 const handleError = (res, error) => {

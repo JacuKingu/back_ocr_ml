@@ -1,5 +1,5 @@
-const express = require('express');
-const documentoController = require('../controllers/comunicacionController');
+const { express } = require('express');
+const { documentoController } = require('../controllers/comunicacionController');
 const { validarDocumento } = require('../middlewares/documentoMiddleware');
 
 const router = express.Router();

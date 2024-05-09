@@ -1,6 +1,6 @@
-const express = require('express');
-const router = express.Router();
-const historialAccesoController = require('../controllers/historialAccesoController');
+const { express } = require('express');
+const { router } = express.Router();
+const { historialAccesoController } = require('../controllers/historialAccesoController');
 const { body } = require('express-validator');
 const { validateHistorialAcceso } = require('../middlewares/accesoMiddleware');
 

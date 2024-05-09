@@ -1,6 +1,6 @@
-const express = require('express');
-const router = express.Router();
-const historialAcademicoController = require('../controllers/historialAcademicoController');
+const { express } = require('express');
+const { router } = express.Router();
+const { historialAcademicoController } = require('../controllers/historialAcademicoController');
 const { validateHistorialAcademico } = require('../middlewares/academicoMiddleware');
 
 //Ruta para obtener todas los historiales academicos

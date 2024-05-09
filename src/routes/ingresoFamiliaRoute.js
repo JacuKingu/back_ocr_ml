@@ -1,6 +1,6 @@
-const express = require('express');
-const router = express.Router();
-const {ingresoFamiliarController} = require('../controllers/ingresoFamiliaController');
+const { express } = require('express');
+const { router } = express.Router();
+const { ingresoFamiliarController } = require('../controllers/ingresoFamiliaController');
 const { validateIngresoFamiliar } = require('../middlewares/familiarMiddleware');
 
 // Ruta para crear un nuevo registro de ingreso familiar

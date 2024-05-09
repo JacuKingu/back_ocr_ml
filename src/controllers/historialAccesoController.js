@@ -1,6 +1,5 @@
-const {HistorialAcceso} = require('../models/historialAccesoModel');
+const { HistorialAcceso } = require('../models/historialAccesoModel');
 const { validationResult } = require('express-validator');
-const {validateHistorialAcceso} = require('../middlewares/accesoMiddleware')
 
 // Crear un nuevo registro en el historial de acceso
 const createHistorialAcceso = async (req, res) => {
