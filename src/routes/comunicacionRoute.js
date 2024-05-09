@@ -1,20 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const comunicacionController = require('../controllers/comunicacionController');
-const { body, validationResult } = require('express-validator');
-
-// Middleware de validación para crear una nueva comunicación
-const validarNuevaComunicacion = [
-  body('idUsuario').isNumeric().withMessage('El ID del usuario debe ser un número'),
-  body('mensaje').notEmpty().withMessage('El mensaje es requerido'),
-  (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-    next();
-  },
-];
+const { validarNuevaComunicacion } = require('../middlewares/comunicaionMiddleware');
 
 // Ruta para obtener todas las comunicaciones de un usuario
 router.get('/comunicaciones/:idUsuario', comunicacionController.getComunicacionesUsuario);
