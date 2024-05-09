@@ -2,7 +2,7 @@ const { validationResult } = require('express-validator');
 const {HistorialAcademico} = require('../models/historialAcademicoModel'); 
 
 // Obtener todos los historiales académicos
-exports.getAllHistorialesAcademicos = async (req, res) => {
+const getAllHistorialesAcademicos = async (req, res) => {
   try {
     const historiales = await HistorialAcademico.find();
     res.status(200).json(historiales);
@@ -12,7 +12,7 @@ exports.getAllHistorialesAcademicos = async (req, res) => {
 };
 
 // Obtener un historial académico por su ID
-exports.getHistorialAcademicoById = async (req, res) => {
+const getHistorialAcademicoById = async (req, res) => {
   const { id } = req.params;
   try {
     const historial = await HistorialAcademico.findById(id);
@@ -26,7 +26,7 @@ exports.getHistorialAcademicoById = async (req, res) => {
 };
 
 // Agregar un nuevo historial académico
-exports.createHistorialAcademico = async (req, res) => {
+const createHistorialAcademico = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -46,7 +46,7 @@ exports.createHistorialAcademico = async (req, res) => {
 };
 
 // Actualizar un historial académico por su ID
-exports.updateHistorialAcademico = async (req, res) => {
+const updateHistorialAcademico = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -69,7 +69,7 @@ exports.updateHistorialAcademico = async (req, res) => {
 };
 
 // Eliminar un historial académico por su ID
-exports.deleteHistorialAcademico = async (req, res) => {
+const deleteHistorialAcademico = async (req, res) => {
   const { id } = req.params;
   try {
     const historialEliminado = await HistorialAcademico.findByIdAndDelete(id);
@@ -80,4 +80,13 @@ exports.deleteHistorialAcademico = async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: 'Error al eliminar el historial académico' });
   }
+};
+
+
+module.exports = {
+  getAllHistorialesAcademicos,
+  getHistorialAcademicoById,
+  createHistorialAcademico,
+  updateHistorialAcademico,
+  deleteHistorialAcademico
 };

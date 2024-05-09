@@ -2,7 +2,7 @@ const Roles = require('../models/Roles');
 const { validationResult } = require('express-validator');
 
 // Crear un nuevo rol
-exports.createRol = async (req, res) => {
+const createRol = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -20,7 +20,7 @@ exports.createRol = async (req, res) => {
 };
 
 // Obtener todos los roles
-exports.getAllRoles = async (req, res) => {
+const getAllRoles = async (req, res) => {
   try {
     const roles = await Roles.findAll();
     res.status(200).json(roles);
@@ -31,7 +31,7 @@ exports.getAllRoles = async (req, res) => {
 };
 
 // Obtener un rol por su ID
-exports.getRolById = async (req, res) => {
+const getRolById = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -48,7 +48,7 @@ exports.getRolById = async (req, res) => {
 };
 
 // Eliminar un rol por su ID
-exports.deleteRolById = async (req, res) => {
+const deleteRolById = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -63,3 +63,10 @@ exports.deleteRolById = async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 };
+
+module.exports = {
+    deleteRolById,
+    createRol,
+    getAllRoles,
+    getRolById,
+  };

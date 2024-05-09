@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const rolesController = require('../controllers/rolesController');
-const { body, validationResult } = require('express-validator');
 const { validarRol } = require('../middlewares/rolMiddleware')
 
 // Rutas para los roles

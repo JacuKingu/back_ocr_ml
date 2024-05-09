@@ -1,9 +1,9 @@
-const { } = require('../models/historialAccesoModel');
+const {HistorialAcceso} = require('../models/historialAccesoModel');
 const { validationResult } = require('express-validator');
 const {validateHistorialAcceso} = require('../middlewares/accesoMiddleware')
 
 // Crear un nuevo registro en el historial de acceso
-exports.createHistorialAcceso = async (req, res) => {
+const createHistorialAcceso = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -28,7 +28,7 @@ exports.createHistorialAcceso = async (req, res) => {
 };
 
 // Obtener todos los registros del historial de acceso
-exports.getAllHistorialAcceso = async (req, res) => {
+const getAllHistorialAcceso = async (req, res) => {
   try {
     const historiales = await HistorialAcceso.find();
     res.status(200).json(historiales);
@@ -39,7 +39,7 @@ exports.getAllHistorialAcceso = async (req, res) => {
 };
 
 // Obtener un registro del historial de acceso por su ID
-exports.getHistorialAccesoById = async (req, res) => {
+const getHistorialAccesoById = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -56,7 +56,7 @@ exports.getHistorialAccesoById = async (req, res) => {
 };
 
 // Eliminar un registro del historial de acceso por su ID
-exports.deleteHistorialAccesoById = async (req, res) => {
+const deleteHistorialAccesoById = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -70,4 +70,12 @@ exports.deleteHistorialAccesoById = async (req, res) => {
     console.error('Error al eliminar historial de acceso por ID:', error);
     res.status(500).json({ error: 'Error interno del servidor' });
   }
+};
+
+
+module.exports = {
+  createHistorialAcceso,
+  getAllHistorialAcceso,
+  getHistorialAccesoById,
+  deleteHistorialAccesoById
 };

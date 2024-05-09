@@ -3,7 +3,7 @@ const {IngresoFamiliar} = require('../models/ingresoFamiliar');
 const { validateIngresoFamiliar } = require('../middlewares/familiarMiddleware');
 
 // Crear un nuevo registro de ingreso familiar
-exports.createIngresoFamiliar = async (req, res) => {
+const createIngresoFamiliar = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -25,7 +25,7 @@ exports.createIngresoFamiliar = async (req, res) => {
 };
 
 // Obtener todos los registros de ingreso familiar
-exports.getAllIngresosFamiliares = async (req, res) => {
+const getAllIngresosFamiliares = async (req, res) => {
   try {
     const ingresosFamiliares = await IngresoFamiliar.find();
     res.status(200).json(ingresosFamiliares);
@@ -36,7 +36,7 @@ exports.getAllIngresosFamiliares = async (req, res) => {
 };
 
 // Obtener un registro de ingreso familiar por su ID
-exports.getIngresoFamiliarById = async (req, res) => {
+const getIngresoFamiliarById = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -53,7 +53,7 @@ exports.getIngresoFamiliarById = async (req, res) => {
 };
 
 // Eliminar un registro de ingreso familiar por su ID
-exports.deleteIngresoFamiliarById = async (req, res) => {
+const deleteIngresoFamiliarById = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -68,3 +68,10 @@ exports.deleteIngresoFamiliarById = async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 };
+
+module.exports = {
+    createIngresoFamiliar,
+    getAllIngresosFamiliares,
+    getIngresoFamiliarById,
+    deleteIngresoFamiliarById
+  };
