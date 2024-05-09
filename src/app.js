@@ -1,7 +1,6 @@
 const { express } = require('express');
 const { config } = require('./config.json');
 const { manejoErrores } = require('./middlewares/manejoErrores'); 
-
 const { comunicacion } = require('./routes/comunicacionRoute');
 const { documento } = require('./routes/documentoRoute');
 const { estudiante } = require('./routes/estudianteRoute');
@@ -31,7 +30,7 @@ app.use('/octi', familia);
 app.use('/octi', role);
 app.use('/octi', seguimiento);
 app.use('/octi', solicitud);
-app.use('/octi', userRoutes); 
+app.use('/octi', user); 
 
 
 const PORT = (config.PORT || 3000);
