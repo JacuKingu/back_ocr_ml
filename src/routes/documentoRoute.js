@@ -1,7 +1,6 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator');
 const documentoController = require('../controllers/comunicacionController');
-const manejoErrores = require('../middlewares/manejoErrores');
 
 const router = express.Router();
 
@@ -34,8 +33,5 @@ router.put('/documentos/:id', validarDocumento, documentoController.updateDocume
 
 // Ruta para eliminar un documento por su ID
 router.delete('/documentos/:id', documentoController.deleteDocumento);
-
-// Middleware de manejo de errores
-router.use(manejoErrores);
 
 module.exports = router;

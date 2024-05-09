@@ -3,7 +3,6 @@ const router = express.Router();
 const historialAccesoController = require('../controllers/historialAccesoController');
 const { body } = require('express-validator');
 const { validateHistorialAcceso } = require('../middlewares/accesoMiddleware');
-const manejoErrores = require('../middlewares/manejoErrores');
 
 // Middleware de validación para la creación y actualización de historiales de acceso
 router.post('/historial-acceso', validateHistorialAcceso, historialAccesoController.createHistorialAcceso);
@@ -16,8 +15,5 @@ router.get('/historial-acceso/:id', historialAccesoController.getHistorialAcceso
 
 // Ruta para eliminar un registro del historial de acceso por su ID
 router.delete('/historial-acceso/:id', historialAccesoController.deleteHistorialAccesoById);
-
-// Middleware de manejo de errores
-router.use(manejoErrores);
 
 module.exports = router;

@@ -1,7 +1,6 @@
 const express = require('express');
 const { body } = require('express-validator');
 const estudianteController = require('../controllers/estudianteController');
-const manejoErrores = require('../middlewares/manejoErrores');
 
 const router = express.Router();
 
@@ -31,8 +30,5 @@ router.put('/estudiantes/:id', validarDatosEstudiante, estudianteController.upda
 
 // Ruta para eliminar un estudiante por su ID
 router.delete('/estudiantes/:id', estudianteController.deleteEstudiante);
-
-// Middleware de manejo de errores
-router.use(manejoErrores);
 
 module.exports = router;

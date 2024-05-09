@@ -13,4 +13,4 @@ const validateHistorialAcceso = [
   ];
 
 
-  module.exports = validateHistorialAcceso;
+module.exports = validateHistorialAcceso;

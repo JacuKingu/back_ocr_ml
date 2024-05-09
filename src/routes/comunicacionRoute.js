@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const comunicacionController = require('../controllers/comunicacionController');
 const { body, validationResult } = require('express-validator');
-const manejoErrores = require('../middlewares/manejoErrores');
 
 // Middleware de validación para crear una nueva comunicación
 const validarNuevaComunicacion = [
@@ -26,7 +25,5 @@ router.post('/comunicaciones', validarNuevaComunicacion, comunicacionController.
 // Ruta para eliminar una comunicación de usuario por su ID
 router.delete('/comunicaciones/:idComunicacion', comunicacionController.deleteComunicacionUsuario);
 
-// Middleware de manejo de errores
-router.use(manejoErrores);
 
 module.exports = router;
